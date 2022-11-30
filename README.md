@@ -7,7 +7,7 @@
 ## Install
 
 ```bash
-npm install --save react-js-dropdavn
+npm install react-js-dropdavn
 ```
 
 ## Usage
@@ -15,12 +15,28 @@ npm install --save react-js-dropdavn
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'react-js-dropdavn'
+import { SimpleDropdown } from 'react-js-dropdavn'
 import 'react-js-dropdavn/dist/index.css'
+
+const data = [
+  {label: 'Ex opt 1', value: 1},
+  {label: 'Ex opt 2', value: 2},
+  {label: 'Ex opt 3', value: 3},
+  {label: 'Ex opt 4', value: 4},
+]
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    return (
+    <SimpleDropdown
+        options={data}
+        clearable
+        searchable
+        configs={
+          { position: { y: 'top', x: 'center' } }
+        }
+      />
+      );
   }
 }
 ```
