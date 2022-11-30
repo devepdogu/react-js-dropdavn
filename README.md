@@ -1,6 +1,6 @@
 # react-js-dropdavn
 
-> Made with create-react-library
+> Made with create-react-library 1.0.4
 
 [![NPM](https://img.shields.io/npm/v/react-js-dropdavn.svg)](https://www.npmjs.com/package/react-js-dropdavn) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
