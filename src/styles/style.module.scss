@@ -1,0 +1,238 @@
+/* add css module styles here (optional) */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+$mainColor: #d1d5db;
+
+.SimpleDropdownWrapper {
+  width: max-content;
+  position: relative;
+
+  .ClearButton {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    height: 30%;
+    transform: translateY(-50%);
+    display: flex;
+    width: 25px;
+    align-items: center;
+    border-radius: 0.15rem;
+
+    justify-content: flex-start;
+    color: rgb(55, 65, 81);
+    z-index: 5;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(55, 65, 81);
+      svg {
+        fill: #d1d5db;
+      }
+    }
+    background-color: white;
+    padding: 5px 0px;
+    & > svg {
+      height: 100%;
+    }
+  }
+  &.DropdownOpened {
+    .LabelWrapper {
+      background-color: rgba(209, 213, 219, 0.5);
+      .DropdownLabelIcon {
+        transform: rotate(180deg);
+      }
+    }
+    .ListContainer {
+      z-index: 999;
+    }
+  }
+  .ListContainer {
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    border-radius: 0.375rem;
+    color: rgb(55, 65, 81);
+    transition: all 1s;
+    animation: scale-up 500ms forwards;
+    overflow: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 10px;
+    width: min-content;
+    min-width: 220px;
+    transform: scale(1);
+    .noResult {
+      padding: 0.75rem 1rem;
+      font-size: 0.8rem;
+      display: block;
+      color: #b4b9c0;
+    }
+    .ListSearchWrapper {
+      padding: 1rem 1rem;
+      box-shadow: rgba(180, 185, 192, 0.15) 0px 1px 0px;
+      span {
+        font-size: 0.7rem;
+        display: block;
+        margin-bottom: 5px;
+        color: #b4b9c0;
+        font-weight: 600;
+      }
+      & > input {
+        &::placeholder {
+          color: rgba(180, 185, 192, 0.757);
+        }
+        font-size: 0.8rem;
+        width: 100%;
+        color: black;
+        outline: 0px;
+        border: 1px solid #d1d5db;
+        border-radius: 0.3rem;
+        padding: 6px 10px;
+      }
+      z-index: 2;
+      position: relative;
+      background-color: white;
+    }
+    .ListWrapper {
+      padding: 0.6rem 0;
+      max-height: 310px;
+      display: flex;
+      overflow-y: scroll;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-direction: column;
+
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+      &::-webkit-scrollbar-track {
+        background-color: rgba(209, 213, 219, 0.75);
+        border-radius: 0px 0px 0.375rem 0px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: rgb(189, 193, 199);
+      }
+
+      & > button {
+        width: 100%;
+        border: 0;
+        text-align: left;
+        padding: 0.75rem 1rem;
+        color: rgb(75 85 99);
+        background-color: white;
+        cursor: pointer;
+        &:hover {
+          background-color: rgba(209, 213, 219, 0.25);
+        }
+        &.ListActiveItem {
+          background-color: rgba(209, 213, 219, 0.2);
+          cursor: default;
+        }
+      }
+    }
+    @keyframes scale-up {
+      from {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+  &.DropdownFullWidth {
+    .ListContainer {
+      width: 100%;
+    }
+  }
+
+  &.DropdownTop {
+    .ListContainer {
+      top: unset;
+      box-shadow: none;
+
+      bottom: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  &.DropdownBottom {
+    .ListContainer {
+      bottom: unset;
+      top: 100%;
+      left: 0;
+      margin-top: 10px;
+    }
+  }
+  &.DropdownLeft {
+    .ListContainer {
+      left: 0;
+      right: unset;
+    }
+  }
+  &.DropdownCenter {
+    .ListContainer {
+      left: 50%;
+      transform: translateX(-50%);
+      right: unset;
+      animation: scale-up-center 500ms forwards;
+    }
+    @keyframes scale-up-center {
+      from {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.5);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateX(-50%);
+      }
+    }
+  }
+
+  &.DropdownRight {
+    .ListContainer {
+      right: 0;
+      left: unset;
+    }
+  }
+  .LabelWrapper {
+    min-width: 160px;
+    &.LabelWrapperToRight {
+      padding-right: 50px;
+    }
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0.375rem;
+    color: rgb(55, 65, 81);
+    background-color: white;
+    padding: 0.75rem 1rem;
+    transition: all 250ms;
+    cursor: pointer;
+    &:hover {
+      background-color: rgba(209, 213, 219, 0.5);
+    }
+    border: 1px solid $mainColor;
+    .DropdownLabelIcon {
+      margin-left: 10px;
+      width: 13px;
+      height: 13px;
+    }
+    .DropdownLabel {
+      cursor: pointer;
+      line-height: 15px;
+      font-family: "Inter", sans-serif !important;
+      &:is(:hover, :focus, :focus-within, :active),
+      & {
+        border: 0px;
+        outline: 0px;
+        box-shadow: none;
+      }
+      .DropdownPrefixLabel {
+        margin-right: 5px;
+      }
+      background-color: transparent;
+    }
+  }
+}

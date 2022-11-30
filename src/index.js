@@ -1,6 +1,8 @@
 import React from 'react'
-import styles from './styles.module.css'
-
-export const ExampleComponent = ({ text }) => {
-  return <div className={styles.test}>Example Component: {text}</div>
+import { Wrapper } from './components';
+import { useCreateContext } from './context';
+export const SimpleDropdown = ({ ...props }) => {
+  const INIT_STATE = { visibility: false, selected: null, search: null };
+  const { Provider } = useCreateContext(INIT_STATE);
+  return <Provider><Wrapper {...props} /></Provider>
 }
